@@ -1,0 +1,51 @@
+&CONTROL
+    calculation = 'scf',
+    prefix      = 'MoSSe',
+    outdir      = './tmp/',
+    pseudo_dir  = '/scratch/rajat_k_ce.iitr/upf',
+    tprnfor     = .true.,
+    tefield=.true.,
+    dipfield=.true.,
+    disk_io= 'nowf',
+/
+
+&SYSTEM
+    ibrav=0,
+    celldm(1) = 7,
+    nat=3,
+    ntyp=3,
+    ecutwfc=117.0,
+    ecutrho=468.0,
+    occupations='smearing',
+    smearing='fd',
+    degauss=0.0019,
+    input_dft='PBE',
+    edir=3,
+    eamp=-0.002,
+    emaxpos=0.95,
+    eopreg=0.05,
+/
+
+&ELECTRONS
+    conv_thr    = 1.0d-10,
+    mixing_mode = 'plain',
+/
+
+ATOMIC_SPECIES
+Mo  95.95   Mo.upf
+S   32.06   S.upf
+Se  78.96   Se.upf
+
+CELL_PARAMETERS alat
+0.5 0.866025403784439 0.0
+-0.5 0.866025403784439 0.0
+0 0 6.587142856879714
+ 
+ATOMIC_POSITIONS bohr
+Mo  0.000000000000000  0.000000000000000  23.219999997837000
+S   0.000000000000000  4.001037365484106  26.109999998157997
+Se  0.000000000000000  4.001037365484106  20.000000000000000
+
+K_POINTS automatic
+8 8 1   1 1 0
+

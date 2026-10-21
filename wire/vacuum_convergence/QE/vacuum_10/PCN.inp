@@ -1,0 +1,50 @@
+&CONTROL
+    calculation = 'scf',
+    prefix      = 'PCN',
+    outdir      = './tmp/',
+    pseudo_dir  = '/scratch/rajat_k_ce.iitr/upf',
+    tstress     = .true.,
+    tprnfor     = .true.,
+    tefield=.true.,
+    dipfield=.true.,
+    disk_io= 'nowf',
+/
+
+&SYSTEM
+    ibrav=0,
+    nat=3,
+    ntyp=3,
+    ecutwfc=117.0,
+    ecutrho=468.0,
+    occupations='smearing',
+    smearing='fd',
+    degauss=0.0019,
+    input_dft='PBE',
+    edir=3,
+    eamp=-0.002,
+    emaxpos=0.95,
+    eopreg=0.05,
+/
+
+&ELECTRONS
+    conv_thr    = 1.0d-10,
+    mixing_mode = 'plain',
+/
+
+ATOMIC_SPECIES
+C  12.01   C.upf
+N   14.00   N.upf
+H  1.00   H.upf
+
+CELL_PARAMETERS bohr
+23.290000000000 0.000000000000 0.000000000000
+0.000000000000 4.556234618062187 0.000000000000
+0.000000000000 0.000000000000 23.290000000000
+ 
+ATOMIC_POSITIONS bohr
+C 10.000000000000000 0.000000000000000 12.059000000000001
+N 10.000000000000000 2.221000000000000 13.289999999999999
+H 10.000000000000000 0.000000000000000 10.000000000000000
+
+K_POINTS gamma
+
